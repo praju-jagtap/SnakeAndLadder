@@ -8,7 +8,7 @@ namespace SnakeandLadderGame
 {
     internal class Game
     {
-        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2 , WINNING_POSITION = 100;
         int playerPosition = 0;
         Random random = new Random();
         public int DiceRoll()
@@ -28,6 +28,10 @@ namespace SnakeandLadderGame
                         break;
                     case LADDER:
                         playerPosition += DiceRoll();
+                        if (playerPosition > 100)
+                        {
+                            playerPosition -= DiceRoll();
+                        }
                         break;
                     case SNAKE:
                         playerPosition -= DiceRoll();
@@ -38,7 +42,11 @@ namespace SnakeandLadderGame
                         break;
                 }
             }
-            Console.WriteLine(playerPosition);
+            if (playerPosition == WINNING_POSITION)
+            {
+                Console.WriteLine(playerPosition);
+            }
+
         }
     }
 }
