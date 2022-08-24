@@ -8,5 +8,6 @@ namespace SnakeandLadderGame
 {
     internal class Game
     {
+        public int playerPosition = 0;
     }
 }
