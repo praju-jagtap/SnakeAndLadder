@@ -9,11 +9,12 @@ namespace SnakeandLadderGame
     internal class Game
     {
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2 , WINNING_POSITION = 100;
-        int playerPosition = 0;
+        int playerPosition = 0, count = 0;
         Random random = new Random();
         public int DiceRoll()
         {
             int diceCount = random.Next(1, 7);
+            Console.WriteLine("Die Roll Value" + "-" + count + "\nPlayer Position" + "-" + playerPosition);
             return diceCount;
         }
         public void Play()
